@@ -40,7 +40,7 @@ UserRouter.post("/signup", async(req, res)=>{
                 await newData.save();
                 res.send({"msg": "Successfully signed up"})
             }else {
-                res.send({"err": hash})
+                res.send({"err": err})
                 console.log(err);
             }
         })
