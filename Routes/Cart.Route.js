@@ -26,7 +26,7 @@ CartRouter.post("/add", async(req, res)=>{
     }
 })
 
-CartRouter.delete("/:id", async(req, res)=>{
+CartRouter.delete("/delete/:id", async(req, res)=>{
     const id= req.params.id;
     try {
         await CartModel.findByIdAndDelete({"_id": id});
