@@ -30,10 +30,10 @@ CartRouter.delete("/delete/:id", async(req, res)=>{
     const id= req.params.id;
     try {
         await CartModel.findByIdAndDelete({"_id": id});
-        res.send("Ticket removed from cart")
+        res.send({"msg":"Ticket removed from cart"})
     } catch (error) {
         console.log({"error":error});
-        res.send("Unable to remove")
+        res.send({"msg":"Unable to remove"})
     }
 })
 
