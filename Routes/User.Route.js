@@ -34,14 +34,14 @@ UserRouter.post("/signup", async(req, res)=>{
     let data= req.body;
     try {
         bcrypt.hash(data.password, +process.env.saltround, async(err, hash)=>{
-            if(hash){
+            if(err){
+                res.send({"err": err});
+                console.log(err);
+            }else {
                 const newData= new UserModel({...data, "password": hash});
                 console.log({...data, password: hash});
                 await newData.save();
                 res.send({"msg": "Successfully signed up"})
-            }else {
-                res.send({"err": err})
-                console.log(err);
             }
         })
     } catch (error) {
