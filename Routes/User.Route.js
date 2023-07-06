@@ -45,7 +45,7 @@ UserRouter.post("/signup", async(req, res)=>{
             }
         })
     } catch (error) {
-        res.send({"error": "Something went wrong"})
+        res.send({"error": error})
         console.log(error)
     }
 })
